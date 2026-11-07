@@ -1,6 +1,6 @@
-// Run: node test/site.test.mjs   (from the project folder that holds site/ and test/)
+// Run: node test/site.test.mjs   (from the project folder that holds the site and test/)
 import fs from 'node:fs';import path from 'node:path';
-const root=path.resolve(path.dirname(new URL(import.meta.url).pathname),'..','site');
+const root=path.resolve(path.dirname(new URL(import.meta.url).pathname),'..');
 const files=[];(function walk(d){for(const f of fs.readdirSync(d)){const p=path.join(d,f);fs.statSync(p).isDirectory()?walk(p):files.push(p)}})(root);
 const text=files.filter(f=>/\.(html|css|js|json|txt|svg)$/.test(f));
 const all=text.map(f=>fs.readFileSync(f,'utf8')).join('\n');
