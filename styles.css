@@ -377,3 +377,21 @@ h3{font-family:var(--hand);font-weight:400;-webkit-text-stroke:.55px var(--ink);
 .panel h3{font-size:22px}
 
 .foot .big{-webkit-text-stroke:.7px var(--ink);font-size:clamp(40px,8vw,80px)}
+
+/* ---- version switcher (like a light/dark toggle) ---- */
+.vswitch{display:inline-flex;align-items:center;gap:2px;padding:3px;background:rgba(248,245,236,.9);backdrop-filter:blur(6px);border:2px solid var(--ink);border-radius:255px 14px 225px 14px/14px 225px 14px 255px;box-shadow:2px 3px 0 var(--ink);position:relative}
+.vswitch .vlabel{font-family:var(--script);font-size:20px;line-height:1;padding:0 6px 0 8px;color:var(--ink2)}
+.vswitch a{font-family:var(--hand);font-size:18px;line-height:1;text-decoration:none;padding:7px 12px 5px;border-radius:999px;color:var(--ink);transition:background .25s,color .25s,transform .25s var(--spring);white-space:nowrap}
+.vswitch a:hover{background:var(--hl)}
+.vswitch a.on{background:var(--ink);color:var(--paper)}
+.vswitch a.on:hover{background:var(--ink)}
+.vswitch a:active{transform:scale(.94)}
+.nav a.vfoot,.foot nav a.vfoot{color:var(--red)}
+@media(max-width:760px){
+ .vswitch{margin-left:auto;margin-right:0}
+ .vswitch .vlabel{display:none}
+ .vswitch a{font-size:16px;padding:7px 10px 5px}
+ .top .logo span{display:none}
+ .top .logo{padding:4px 10px 2px}
+}
+@media(max-width:380px){.vswitch a{padding:7px 8px 5px;font-size:15px}}
